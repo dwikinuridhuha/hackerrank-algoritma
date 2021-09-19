@@ -1,9 +1,11 @@
-const masukanN = 7;
+const masukanN = [2, 9, 7, 4, 5];
 
-function staircase(n) {
-    for (let i = 1; i <= n; i++) {
-        console.log(" ".repeat(n - i) + "#".repeat(i))
-    }
+function miniMaxSum(arr) {
+    const maxArr = [...arr].sort((a, b) => a - b);
+    const minArr = [...arr].sort((a, b) => b - a);
+    const max = maxArr.slice(arr.length - 4).reduce((acc, no) => acc += no, 0);
+    const min = minArr.slice(arr.length - 4).reduce((acc, no) => acc += no, 0);
+    console.log(min + " " + max);
 }
 
-staircase(masukanN);
+miniMaxSum(masukanN);
